@@ -157,7 +157,10 @@ module.exports = function(grunt) {
     }
     else{ //else beautify
       var beautify_js = require('js-beautify');
-      output = beautify_js.html_beautify(output);
+      var beautifyCfg = {
+        unformatted:['a', 'sub', 'sup', 'b', 'i', 'u', 'script', 'img']
+      };
+      output = beautify_js.html_beautify(output,beautifyCfg);
     }
     
     return output;
